@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let cau1 = (a, b) => {
+        let result1 = a.filter((e) => !b.includes(e));
+        let result2 = b.filter((e) => !a.includes(e));
+        return result1.concat(result2);
+      };
+
+      let data = [
+        {
+          name: "Arsenal",
+          point: 99,
+          GD: 45,
+        },
+        {
+          name: "Mu",
+          point: 60,
+          GD: 29,
+        },
+        {
+          name: "Chelsea",
+          point: 75,
+          GD: 39,
+        },
+        {
+          name: "Liverpool",
+          point: 60,
+          GD: 39,
+        },
+      ];
+
+      let bai2 =(data)=>{
+          data.sort((a,b)=>{
+              if(a.point != b.point){
+                  return b.point - a.point
+              }else if(a.GD != b.GD){
+                  return a.GD - b.GD
+              }else{
+                  return b.name.toUpperCase() - a.name.toUpperCase() 
+              }
+          })
+
+          for(let i in data){
+              data[i].position = parseInt(i) + 1
+          }
+          return data
+      }
+      
+
+      //   console.log(cau1([1, 2, "a", "9"],[1, 3, "b", "9"]))
+    //   console.log(bai2(data))
+    </script>
+  </body>
+</html>
